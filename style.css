@@ -29,6 +29,17 @@ body {
     border-radius: 7.5px;
 }
 
+.heading {
+    color: #FFEA20;
+    font-size: 48px;
+    font-family: 'Sacramento', cursive;
+    font-style: italic;
+    text-align: center;
+
+    text-shadow: 4px 4px 6px rgba(66, 68, 90, 1);
+    margin-bottom: 25px;
+}
+
 .box {
     width: 100%;
     display: flex;
