@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Sacramento&display=swap');
+
+
+*, 
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    padding: 25px;
+    background-color: rgb(244,244, 244);
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    background-color: #da2525;
+    width: 100%;
+    padding: 25px;
+    border: 10px solid #900d0d;
+    border-radius: 7.5px;
+}
