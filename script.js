@@ -2,7 +2,9 @@ const gridElement = document.querySelector('.grid');
 
 const gridSizeButton = document.querySelector('.btn-grid');
 
-const colorButton = document.querySelectorAll ('.btn-color');
+const colorButton = document.querySelectorAll ('.btn-col');
+
+let colorOption;
 
 function createGrid(size){
     // clear our grid
@@ -46,10 +48,17 @@ function changeGridSize(){
 
 }
 
+function getColorOption(e){
+    // we get from button color element value from data- attribute
+    const data = e.target.getAttribute('data-btn');
 
+    // assign to global variable 'colorOption'
+    colorOption = data;
+}
 
-// we create event listener to call changeGridsize()
+// we create event listener to choose what color we want to draw on grid
 gridSizeButton.addEventListener('click', changeGridSize);
 
+colorButton.forEach(button => button.addEventListener('click', getColorOption));
 
 createGrid();
