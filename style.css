@@ -28,3 +28,32 @@ body {
     border: 10px solid #900d0d;
     border-radius: 7.5px;
 }
+
+.box {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.grid-border {
+    height: 600px;
+    width: 600px;
+    margin-bottom: 20px;
+
+    border: 10px solid #900d0d;
+    border-radius: 7.5px;
+}
+
+.grid {
+    display: grid;
+    grid-auto-flow: row dense;
+    width: 100%;
+    height: 100%;
+    background-color: darkgray;
+}
+
+.cell {
+    display: inline-block;
+    background-color: rgb(237, 237, 237);
+}
