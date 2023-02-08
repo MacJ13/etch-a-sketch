@@ -56,9 +56,37 @@ function getColorOption(e){
     colorOption = data;
 }
 
-// we create event listener to choose what color we want to draw on grid
+function drawGrid(e){
+    if(!e.target.classList.contains('cell')) return;
+
+    const cellElement = e.target;
+
+    if(colorOption === 'rgb') {
+        cellElement.style.backgroundColor = getRandomColor();
+    }
+
+    else {
+        // change square background color to black
+        cellElement.style.backgroundColor = 'rgb(0, 0, 0)';
+    }
+}
+
+function getRandomColor(){
+    let r = Math.floor(Math.random() * 255);
+    let g = Math.floor(Math.random() * 255);
+    let b = Math.floor(Math.random() * 255);
+
+    return `rgb(${r},${g},${b})`;
+}
+
+// with this button we can choose size of grid squares
 gridSizeButton.addEventListener('click', changeGridSize);
 
+// we create event listener to choose what color we want to draw on grid
 colorButton.forEach(button => button.addEventListener('click', getColorOption));
+
+//event draw on the grid squares
+gridElement.addEventListener('mouseover', drawGrid);
+
 
 createGrid();
