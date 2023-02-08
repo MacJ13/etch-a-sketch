@@ -6,6 +6,9 @@ const colorButton = document.querySelectorAll ('.btn-col');
 
 let colorOption;
 
+
+
+
 function createGrid(size){
     // clear our grid
     gridElement.innerHTML = ''
@@ -33,7 +36,9 @@ function createGrid(size){
 }
 
 // change number of square size in the grid
-function changeGridSize(){
+function changeGridSize(btn){
+    
+
     // we declare variable and assign prompt
     const size = +prompt('Type size of square per side \n(not greater than 60):');
     
@@ -46,6 +51,14 @@ function changeGridSize(){
     //pass the variable to createGrid();
     createGrid(size);
 
+    // toggle grid size btn
+    btn.classList.toggle('btn-active');
+}
+
+function toggleButtons(){
+    colorButton.forEach(button => {
+        button.classList.toggle('btn-active');
+    })
 }
 
 function getColorOption(e){
@@ -54,6 +67,9 @@ function getColorOption(e){
 
     // assign to global variable 'colorOption'
     colorOption = data;
+    
+    // we toggle class btn-active on buttons
+    toggleButtons();
 }
 
 function drawGrid(e){
@@ -79,11 +95,25 @@ function getRandomColor(){
     return `rgb(${r},${g},${b})`;
 }
 
+
+
+
+// when script load we call our function
+
 // with this button we can choose size of grid squares
-gridSizeButton.addEventListener('click', changeGridSize);
+gridSizeButton.addEventListener('click', e => {
+    const btnGrid = e.currentTarget;
+    btnGrid.classList.toggle('btn-active');
+    
+    setTimeout(() => {
+        changeGridSize(btnGrid);
+    }, 100);
+    
+}
+);
 
 // we create event listener to choose what color we want to draw on grid
-colorButton.forEach(button => button.addEventListener('click', getColorOption));
+colorButton.forEach(button => button.addEventListener('click', getColorOption ));
 
 //event draw on the grid squares
 gridElement.addEventListener('mouseover', drawGrid);
